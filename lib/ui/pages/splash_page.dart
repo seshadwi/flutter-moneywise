@@ -4,6 +4,7 @@ import 'package:moneywise_app/shared/theme.dart';
 
 import 'dart:async';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:moneywise_app/ui/pages/onboarding_page.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -39,9 +40,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
   void initState() {
     super.initState();
     repeatOnce();
-    Timer(Duration(milliseconds: 3500), () {
-      Navigator.pushNamed(context, '/sign-up');
-    });
+    Timer(
+      const Duration(milliseconds: 2500),
+      () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const OnBoardingPage(),
+          ),
+        );
+      },
+    );
   }
 
   void repeatOnce() async {
