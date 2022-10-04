@@ -95,60 +95,110 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 50),
-                  Row(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        width: 12,
-                        height: 12,
-                        decoration: BoxDecoration(
-                          color: currentIndex == 0 ? blueColor : lightBgColor,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        width: 12,
-                        height: 12,
-                        decoration: BoxDecoration(
-                          color: currentIndex == 1 ? blueColor : lightBgColor,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        width: 12,
-                        height: 12,
-                        decoration: BoxDecoration(
-                          color: currentIndex == 2 ? blueColor : lightBgColor,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      const Spacer(),
-                      Container(
-                        width: 150,
-                        height: 50,
-                        child: TextButton(
-                          onPressed: () {
-                            carouselController.nextPage();
-                          },
-                          style: TextButton.styleFrom(
-                            backgroundColor: purpleColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(56),
-                            ),
-                          ),
-                          child: Text(
-                            'Continue',
-                            style: whiteTextStyle.copyWith(
-                              fontWeight: semiBold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  SizedBox(
+                    height: currentIndex == 2 ? 38 : 50,
                   ),
+                  currentIndex == 2
+                      ? Column(
+                          children: [
+                            SizedBox(
+                              width: double.infinity,
+                              height: 50,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  backgroundColor: purpleColor,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(56),
+                                  ),
+                                ),
+                                child: Text(
+                                  'Get Started',
+                                  style: whiteTextStyle.copyWith(
+                                    fontWeight: semiBold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            SizedBox(
+                              width: double.infinity,
+                              height: 24,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(56),
+                                  ),
+                                ),
+                                child: Text(
+                                  'Sign In',
+                                  style: greyTextStyle,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : Row(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(right: 10),
+                              width: 12,
+                              height: 12,
+                              decoration: BoxDecoration(
+                                color: currentIndex == 0
+                                    ? blueColor
+                                    : lightBgColor,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(right: 10),
+                              width: 12,
+                              height: 12,
+                              decoration: BoxDecoration(
+                                color: currentIndex == 1
+                                    ? blueColor
+                                    : lightBgColor,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(right: 10),
+                              width: 12,
+                              height: 12,
+                              decoration: BoxDecoration(
+                                color: currentIndex == 2
+                                    ? blueColor
+                                    : lightBgColor,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            const Spacer(),
+                            SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: TextButton(
+                                onPressed: () {
+                                  carouselController.nextPage();
+                                },
+                                style: TextButton.styleFrom(
+                                  backgroundColor: purpleColor,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(56),
+                                  ),
+                                ),
+                                child: Text(
+                                  'Continue',
+                                  style: whiteTextStyle.copyWith(
+                                    fontWeight: semiBold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                 ],
               ),
             ),
