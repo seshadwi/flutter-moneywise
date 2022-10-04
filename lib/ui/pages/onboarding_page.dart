@@ -2,8 +2,28 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:moneywise_app/shared/theme.dart';
 
-class OnBoardingPage extends StatelessWidget {
+class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
+
+  @override
+  State<OnBoardingPage> createState() => _OnBoardingPageState();
+}
+
+class _OnBoardingPageState extends State<OnBoardingPage> {
+  int currentIndex = 0;
+  CarouselController carouselController = CarouselController();
+
+  List<String> titles = [
+    'Grow Your\nFinancial Today',
+    'Build From\nZero to Freedom',
+    'Start Together',
+  ];
+
+  List<String> subTitles = [
+    'Our system is helping you to\nachieve a better goal',
+    'We provide tips for you so that\nyou can adapt easier',
+    'We will guide you to where\nyou wanted it too',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +52,15 @@ class OnBoardingPage extends StatelessWidget {
                 height: 331,
                 viewportFraction: 1,
                 enableInfiniteScroll: false,
+                onPageChanged: (index, reason) {
+                  setState(
+                    () {
+                      currentIndex = index;
+                    },
+                  );
+                },
               ),
+              carouselController: carouselController,
             ),
             const SizedBox(
               height: 80,
@@ -52,7 +80,7 @@ class OnBoardingPage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Grow Your\nFinancial Today',
+                    titles[currentIndex],
                     style: blackTextStyle.copyWith(
                       fontSize: 20,
                       fontWeight: semiBold,
@@ -61,7 +89,7 @@ class OnBoardingPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 26),
                   Text(
-                    'Our system is helping you to achieve a better  goal',
+                    subTitles[currentIndex],
                     style: greyTextStyle.copyWith(
                       fontSize: 16,
                     ),
@@ -75,7 +103,7 @@ class OnBoardingPage extends StatelessWidget {
                         width: 12,
                         height: 12,
                         decoration: BoxDecoration(
-                          color: blueColor,
+                          color: currentIndex == 0 ? blueColor : lightBgColor,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -84,7 +112,7 @@ class OnBoardingPage extends StatelessWidget {
                         width: 12,
                         height: 12,
                         decoration: BoxDecoration(
-                          color: lightBgColor,
+                          color: currentIndex == 1 ? blueColor : lightBgColor,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -93,7 +121,7 @@ class OnBoardingPage extends StatelessWidget {
                         width: 12,
                         height: 12,
                         decoration: BoxDecoration(
-                          color: lightBgColor,
+                          color: currentIndex == 2 ? blueColor : lightBgColor,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -102,7 +130,9 @@ class OnBoardingPage extends StatelessWidget {
                         width: 150,
                         height: 50,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            carouselController.nextPage();
+                          },
                           style: TextButton.styleFrom(
                             backgroundColor: purpleColor,
                             shape: RoundedRectangleBorder(
