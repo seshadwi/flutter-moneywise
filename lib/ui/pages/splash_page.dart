@@ -69,7 +69,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
     return Center(
       child: Stack(
         children: [
-          Image.asset('assets/bg_splash.png'),
+          SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: FittedBox(
+              fit: BoxFit.fill,
+              child: Image.asset('assets/bg_splash.png'),
+            ),
+          ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

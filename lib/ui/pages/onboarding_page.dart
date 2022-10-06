@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:moneywise_app/shared/theme.dart';
 import 'package:moneywise_app/ui/pages/sign_in_page.dart';
+import 'package:moneywise_app/ui/widgets/buttons.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
@@ -102,56 +103,21 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   currentIndex == 2
                       ? Column(
                           children: [
-                            SizedBox(
-                              width: double.infinity,
-                              height: 50,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SignInPage(),
-                                    ),
-                                  );
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor: purpleColor,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(56),
+                            CustomFilledButton(
+                              title: 'Get Started',
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SignInPage(),
                                   ),
-                                ),
-                                child: Text(
-                                  'Get Started',
-                                  style: whiteTextStyle.copyWith(
-                                    fontWeight: semiBold,
-                                  ),
-                                ),
-                              ),
+                                );
+                              },
                             ),
                             const SizedBox(height: 20),
-                            SizedBox(
-                              width: double.infinity,
-                              height: 24,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SignInPage(),
-                                    ),
-                                  );
-                                },
-                                style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(56),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Sign In',
-                                  style: greyTextStyle,
-                                ),
-                              ),
+                            CustomTextWidget(
+                              title: 'Sign In',
+                              onPressed: () {},
                             ),
                           ],
                         )
@@ -191,27 +157,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               ),
                             ),
                             const Spacer(),
-                            SizedBox(
+                            CustomFilledButton(
+                              title: 'Continue',
                               width: 150,
-                              height: 50,
-                              child: TextButton(
-                                onPressed: () {
-                                  carouselController.nextPage();
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor: purpleColor,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(56),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Continue',
-                                  style: whiteTextStyle.copyWith(
-                                    fontWeight: semiBold,
-                                  ),
-                                ),
-                              ),
-                            ),
+                              onPressed: () {
+                                carouselController.nextPage();
+                              },
+                            )
                           ],
                         ),
                 ],

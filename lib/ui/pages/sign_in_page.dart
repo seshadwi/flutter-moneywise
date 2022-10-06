@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moneywise_app/shared/theme.dart';
+import 'package:moneywise_app/ui/widgets/buttons.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -92,46 +93,18 @@ class SignInPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        backgroundColor: purpleColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(56),
-                        ),
-                      ),
-                      child: Text(
-                        'Sign in',
-                        style: whiteTextStyle.copyWith(
-                          fontWeight: semiBold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ),
+                  CustomFilledButton(
+                    title: 'Sign In',
+                    onPressed: () {},
+                  )
                 ],
               ),
             ),
             const SizedBox(height: 50),
-            SizedBox(
-              width: double.infinity,
-              height: 24,
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                ),
-                child: Text(
-                  'Create New Account',
-                  style: greyTextStyle.copyWith(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
+            CustomTextWidget(
+              title: 'Create New Account',
+              onPressed: () {},
+            )
           ],
         ),
       ),
