@@ -41,8 +41,8 @@ class CustomFilledButton extends StatelessWidget {
   }
 }
 
-class CustomTextWidget extends StatelessWidget {
-  const CustomTextWidget({
+class CustomTextButton extends StatelessWidget {
+  const CustomTextButton({
     Key? key,
     required this.title,
     this.width = double.infinity,

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:moneywise_app/shared/theme.dart';
 import 'package:moneywise_app/ui/widgets/buttons.dart';
 import 'package:moneywise_app/ui/widgets/forms.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class SignUpSetKtpPage extends StatelessWidget {
+  const SignUpSetKtpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             Text(
-              'Sign in &\nGrow Your Finance',
+              'Verify Your\nAccount',
               style: blackTextStyle.copyWith(
                 fontSize: 20,
                 fontWeight: semiBold,
@@ -43,43 +42,57 @@ class SignInPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // NOTE: EMAIL INPUT
-                  const CustomFormField(title: 'Email Address'),
-                  const SizedBox(height: 16),
-                  // NOTE: PASSWORD INPUT
-                  const CustomFormField(
-                    title: 'Password',
-                    obscureText: true,
-                  ),
-                  const SizedBox(height: 8),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Forgot Password',
-                      style: blueTextStyle,
+                  Container(
+                    width: 120,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: lightBgColor,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/ic_upload.png',
+                        width: 32,
+                        height: 32,
+                      ),
                     ),
                   ),
+                  // Container(
+                  //   width: 120,
+                  //   height: 120,
+                  //   decoration: const BoxDecoration(
+                  //     shape: BoxShape.circle,
+                  //     image: DecorationImage(
+                  //       fit: BoxFit.cover,
+                  //       image: AssetImage('assets/img_profile.png'),
+                  //     ),
+                  //   ),
+                  // ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Passport/ID Card',
+                    style: blackTextStyle.copyWith(
+                      fontWeight: medium,
+                      fontSize: 18,
+                    ),
+                  ),
+
                   const SizedBox(height: 30),
                   CustomFilledButton(
-                    title: 'Sign In',
-                    onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, '/home', (route) => false);
-                    },
+                    title: 'Continue',
+                    onPressed: () {},
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 60),
             CustomTextButton(
-              title: 'Create New Account',
+              title: 'Skip for Now',
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, '/sign-up', (route) => false);
+                Navigator.pushNamed(context, '/sign-up-success');
               },
-            )
+            ),
           ],
         ),
       ),

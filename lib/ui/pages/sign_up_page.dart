@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:moneywise_app/shared/theme.dart';
-import 'package:moneywise_app/ui/widgets/buttons.dart';
 import 'package:moneywise_app/ui/widgets/forms.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+import '../widgets/buttons.dart';
+
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             Text(
-              'Sign in &\nGrow Your Finance',
+              'Join Us to Unlock\nYour Growth',
               style: blackTextStyle.copyWith(
                 fontSize: 20,
                 fontWeight: semiBold,
@@ -45,28 +45,19 @@ class SignInPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // NOTE: EMAIL INPUT
+                  const CustomFormField(title: 'Full Name'),
+                  const SizedBox(height: 16),
                   const CustomFormField(title: 'Email Address'),
                   const SizedBox(height: 16),
-                  // NOTE: PASSWORD INPUT
                   const CustomFormField(
                     title: 'Password',
                     obscureText: true,
                   ),
-                  const SizedBox(height: 8),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Forgot Password',
-                      style: blueTextStyle,
-                    ),
-                  ),
                   const SizedBox(height: 30),
                   CustomFilledButton(
-                    title: 'Sign In',
+                    title: 'Continue',
                     onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, '/home', (route) => false);
+                      Navigator.pushNamed(context, '/sign-up-set-profile');
                     },
                   ),
                 ],
@@ -74,10 +65,9 @@ class SignInPage extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             CustomTextButton(
-              title: 'Create New Account',
+              title: 'Sign In',
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, '/sign-up', (route) => false);
+                Navigator.pushNamed(context, '/sign-in');
               },
             )
           ],
