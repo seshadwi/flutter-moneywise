@@ -1,4 +1,4 @@
-# moneywise_app
+# Flutter Wallet App
 
 A new Flutter project.
 

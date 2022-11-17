@@ -8,7 +8,6 @@ class SignUpSuccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBgColor,
       body: SafeArea(
         child: Center(
           child: Column(
